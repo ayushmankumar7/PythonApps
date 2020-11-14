@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 import os, sys
-from moviepy.editor import * 
+from converter import convert
 
 
 
@@ -15,7 +15,7 @@ class PrettyWidget(QtWidgets.QWidget):
         self.setGeometry(600, 300, 400, 200)
         self.setWindowTitle('Single Browse')     
         
-        btn = QtWidgets.QPushButton('Browse\n(SINGLE)', self)
+        btn = QtWidgets.QPushButton('Browse', self)
         btn.resize(btn.sizeHint())
         btn.clicked.connect(self.SingleBrowse)
         btn.move(150, 100)     
