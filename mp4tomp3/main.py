@@ -13,7 +13,7 @@ class PrettyWidget(QtWidgets.QWidget):
         
     def initUI(self):
         self.setGeometry(600, 300, 400, 200)
-        self.setWindowTitle('Single Browse')     
+        self.setWindowTitle('MP4 to MP3 Convertor')     
         
         btn = QtWidgets.QPushButton('Browse', self)
         btn.resize(btn.sizeHint())
@@ -38,8 +38,11 @@ class PrettyWidget(QtWidgets.QWidget):
         
     def conv(self):
         # convert()
-        convert(self.c)
+        try:
 
+            convert(self.c)
+        except:
+            pass
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
