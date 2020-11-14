@@ -18,7 +18,12 @@ class PrettyWidget(QtWidgets.QWidget):
         btn = QtWidgets.QPushButton('Browse', self)
         btn.resize(btn.sizeHint())
         btn.clicked.connect(self.SingleBrowse)
-        btn.move(150, 100)     
+        btn.move(150, 100)  
+
+        btn1 = QtWidgets.QPushButton('Convert', self)
+        btn1.resize(btn.sizeHint())
+        btn1.clicked.connect(self.conv)
+        btn1.move(150, 150)   
 
         self.show()
 
@@ -27,9 +32,15 @@ class PrettyWidget(QtWidgets.QWidget):
                                                        'Single File',
                                                        "~/Desktop/PyRevolution/PyQt4",
                                                       '*.mp4')
+        
+        self.c = filePath[0]
         print('filePath',filePath[0], '\n')
         
-    
+    def conv(self):
+        # convert()
+        convert(self.c)
+
+
 def main():
     app = QtWidgets.QApplication(sys.argv)
     w = PrettyWidget()
