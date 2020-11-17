@@ -6,8 +6,8 @@ class DisplayImageWidget(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super(DisplayImageWidget, self).__init__(parent)
 
-        self.button = QtWidgets.QPushButton('Show picture')
-        self.button.clicked.connect(self.show_image)
+        self.button = QtWidgets.QPushButton('Browse Image')
+        self.button.clicked.connect(self.SingleBrowse)
         self.image_frame = QtWidgets.QLabel()
 
         self.layout = QtWidgets.QVBoxLayout()
@@ -15,9 +15,23 @@ class DisplayImageWidget(QtWidgets.QWidget):
         self.layout.addWidget(self.image_frame)
         self.setLayout(self.layout)
 
+
+    def SingleBrowse(self):
+        self.image = None
+        filePath = QtWidgets.QFileDialog.getOpenFileName(self, 
+                                                       'Single File',
+                                                       "~/Desktop/PyRevolution/PyQt4",
+                                                      '*.jpg')
+        
+        self.c = filePath[0]
+        print('filePath',filePath[0], '\n')
+        self.show_image(self.c)
+
+
+    
     @QtCore.pyqtSlot()
-    def show_image(self):
-        self.image = cv2.imread('..\mp4tomp3\Images\ss1.jpg')
+    def show_image(self, path):
+        self.image = cv2.imread(path)
         self.image = QtGui.QImage(self.image.data, self.image.shape[1], self.image.shape[0], QtGui.QImage.Format_RGB888).rgbSwapped()
         self.image_frame.setPixmap(QtGui.QPixmap.fromImage(self.image))
 
