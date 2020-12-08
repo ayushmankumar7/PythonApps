@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 import os, sys
-
+from conveter import convert
 
 
 
@@ -38,11 +38,11 @@ class PrettyWidget(QtWidgets.QWidget):
         
     def conv(self):
         # convert()
-        try:
-            pass
-            # convert(self.c)
-        except:
-            pass
+        # try:
+            
+        convert(self.c)
+        # except:
+            # print("error")
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
