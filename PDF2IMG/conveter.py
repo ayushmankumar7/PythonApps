@@ -7,6 +7,8 @@ def convert(path):
     
     try:
         os.system("mkdir output_file")
+    except:
+        pass
 
 
     pages = convert_from_path(path, 300)
