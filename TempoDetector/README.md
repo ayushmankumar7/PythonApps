@@ -5,6 +5,7 @@
 #### Install
 
 `
+pip install -r requirements.txt
 python main.py
 `
 #### Drag any .wav file and drop in the GUI 
