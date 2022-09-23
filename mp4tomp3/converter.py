@@ -9,12 +9,11 @@ def output_name(name):
 
 # print(output_name(' C:/Users/ayush/Videos/2020-08-11_16-08-20.mp4'))
 
-def convert(mp4_name):
+def convert(mp4_name,output_file):
     
-    mp3_file = output_name(mp4_name)
     videoclip = VideoFileClip(mp4_name)
     audioclip = videoclip.audio
-    audioclip.write_audiofile(mp3_file)
+    audioclip.write_audiofile(output_file)
     audioclip.close()
     videoclip.close()
 

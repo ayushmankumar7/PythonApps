@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets
 import os, sys
-from converter import convert
+from converter import convert, output_name
 
 
 
@@ -39,8 +39,9 @@ class PrettyWidget(QtWidgets.QWidget):
     def conv(self):
         # convert()
         try:
-
-            convert(self.c)
+            output_filename = QtWidgets.QFileDialog.getSaveFileName(self, "Save Mp3 File", output_name(self.c), "*.mp3")
+            print(output_filename)
+            convert(self.c, output_filename[0])
         except:
             pass
 
